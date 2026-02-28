@@ -3,7 +3,7 @@ export interface Company {
   name: string;
   industry: string;
   location: string;
-  description: string;
+  overview: string;
   website: string;
   logo: string;
 }

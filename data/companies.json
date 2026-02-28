@@ -7,7 +7,7 @@
     "description": "Building the most accurate database of the startup ecosystem. AI-powered sourcing for venture funds.",
     "website": "https://harmonic.ai",
     "logo": "https://cdn.brandfetch.io/idfCXATCal/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1746449601083",
-    "overview": "Harmonic is a data platform that provides one of the most complete startup databases used by venture capitalists and corporate teams to source new investment opportunities and insights. It enhances deal sourcing using rich firmographic data and real-time company updates." 
+    "overview": "Harmonic is a data intelligence platform designed to provide one of the most comprehensive and real-time startup databases in the world. It leverages machine learning to aggregate, structure, and continuously update firmographic data across millions of companies. Venture capital firms, corporate development teams, and private equity investors use Harmonic to enhance deal sourcing, monitor ecosystem changes, track founder movements, and uncover early signals before funding rounds become widely visible."
   },
   {
     "id": "c_002",
@@ -17,7 +17,7 @@
     "description": "The platform for frontend developers, providing the speed and reliability innovators need to create at the moment of inspiration.",
     "website": "https://vercel.com",
     "logo": "https://cdn.brandfetch.io/idDpCfN4VD/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1759982772575",
-    "overview": "Vercel is a cloud platform optimized for frontend developers and frameworks like Next.js, enabling automatic deployments, edge scaling, and fast performance for web applications." 
+    "overview": "Vercel is a cloud infrastructure platform purpose-built for frontend development and optimized for frameworks like Next.js. It provides automated deployments, edge networking, serverless functions, and performance optimization out of the box. By abstracting DevOps complexity, Vercel enables product teams to ship faster, scale globally, and maintain high reliability, making it a core infrastructure layer for modern web applications."
   },
   {
     "id": "c_003",
@@ -27,7 +27,7 @@
     "description": "The open source Firebase alternative. Build in a weekend, scale to millions.",
     "website": "https://supabase.com",
     "logo": "https://cdn.brandfetch.io/idsSceG8fK/w/436/h/449/theme/dark/symbol.png?c=1bxid64Mup7aczewSAYMX&t=1668081497517",
-    "overview": "Supabase provides backend services including authentication, database, storage, and real-time APIs, making it an open-source alternative to Firebase that scales from small projects to enterprise use." 
+    "overview": "Supabase is an open-source backend-as-a-service platform that provides developers with authentication, PostgreSQL databases, real-time subscriptions, storage, and edge functions. Positioned as a developer-friendly alternative to Firebase, Supabase emphasizes transparency, open standards, and scalability. It enables startups to rapidly prototype while maintaining the flexibility to scale into production-grade infrastructure."
   },
   {
     "id": "c_004",
@@ -37,7 +37,7 @@
     "description": "Linear is a better way to build products. Meet the new standard for modern software development.",
     "website": "https://linear.app",
     "logo": "https://cdn.brandfetch.io/iduDa181eM/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1723620974313",
-    "overview": "Linear is a modern product and issue-tracking tool designed for velocity — offering fast keyboard workflows, integrations, and real-time collaboration for software teams." 
+    "overview": "Linear is a modern issue tracking and product management platform built for speed, clarity, and keyboard-first workflows. Designed for high-performing software teams, it integrates task tracking, sprint planning, roadmap management, and real-time collaboration into a streamlined interface. Its emphasis on performance and developer-centric UX has made it popular among fast-scaling startups and product-led companies."
   },
   {
     "id": "c_005",
@@ -47,7 +47,7 @@
     "description": "Financial infrastructure platform for the internet. Millions of companies use Stripe to accept payments.",
     "website": "https://stripe.com",
     "logo": "https://cdn.brandfetch.io/idxAg10C0L/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1746435914582",
-    "overview": "Stripe is one of the world’s leading financial infrastructure platforms, powering online payments, billing systems, and financial tools for businesses of all sizes." 
+    "overview": "Stripe is a global financial infrastructure platform that powers online payments, subscription billing, marketplace transactions, and embedded financial services. Through APIs and developer-first tools, Stripe enables businesses to accept payments, manage recurring revenue, and build fintech products seamlessly. Its ecosystem extends into identity verification, issuing, and treasury solutions, positioning it as a foundational layer of the internet economy."
   },
   {
     "id": "c_006",
@@ -56,8 +56,8 @@
     "location": "San Francisco, CA",
     "description": "An AI safety and research company that's building reliable, interpretable, and steerable AI systems.",
     "website": "https://anthropic.com",
-    "logo": "https://cdn.brandfetch.io/idmJWF3N06/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1721803183716",
-    "overview": "Anthropic develops cutting-edge AI models with an emphasis on safety, interpretability, and aligning machine behavior with human intentions." 
+    "logo": "https://cdn.brandfetch.io/idmJWF3N06/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1721803173482",
+    "overview": "Anthropic is an AI research and safety company focused on building reliable, interpretable, and aligned artificial intelligence systems. Known for its Claude family of models, Anthropic emphasizes constitutional AI techniques to improve transparency and reduce harmful outputs. The company works at the frontier of large language models while prioritizing long-term AI alignment and responsible deployment."
   },
   {
     "id": "c_007",
@@ -66,8 +66,8 @@
     "location": "San Francisco, CA",
     "description": "An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.",
     "website": "https://midjourney.com",
-    "logo": "https://cdn.brandfetch.io/id2zQLfAF7/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1764313584264",
-    "overview": "Midjourney is a generative AI research lab best known for its AI-powered image generation platform that allows users to create artwork from text prompts." 
+    "logo": "https://cdn.brandfetch.io/idWC31ARtj/w/180/h/180/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1749056475683",
+    "overview": "Midjourney is an independent AI research lab best known for its text-to-image generation platform. By translating natural language prompts into high-quality digital artwork, Midjourney has enabled a new wave of creative workflows across design, marketing, and digital media. Its community-driven model and iterative experimentation place it at the intersection of AI, art, and cultural production."
   },
   {
     "id": "c_008",
@@ -76,8 +76,8 @@
     "location": "San Francisco, CA",
     "description": "Magically simplify HR, IT, and Finance. Rippling brings together all of the workforce systems that are normally scattered.",
     "website": "https://rippling.com",
-    "logo": "https://cdn.brandfetch.io/idyS3r5vpr/idKT79kFIK.svg?c=1bxid64Mup7aczewSAYMX&t=1657263209751",
-    "overview": "Rippling is an all-in-one workforce management platform that consolidates HR, payroll, IT, and finance tools into a single automated system." 
+    "logo": "https://cdn.brandfetch.io/idyS3r5vpr/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1668081108780",
+    "overview": "Rippling is an all-in-one workforce management platform that unifies HR, payroll, IT provisioning, and finance operations into a single system. It automates employee onboarding, device management, benefits administration, and compliance workflows, reducing operational complexity for growing companies. By consolidating fragmented workforce tools, Rippling aims to serve as a centralized operating layer for people operations."
   },
   {
     "id": "c_009",
@@ -87,7 +87,7 @@
     "description": "The connected workspace where better, faster work happens.",
     "website": "https://notion.so",
     "logo": "https://cdn.brandfetch.io/idPYUoikV7/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1721041449201",
-    "overview": "Notion is an all-in-one productivity workspace combining notes, docs, databases, and tasks into a flexible app for teams and individuals." 
+    "overview": "Notion is a flexible productivity and collaboration platform that combines notes, documents, databases, task management, and knowledge sharing into a unified workspace. Teams use Notion to centralize documentation, manage projects, and build internal tools without heavy engineering overhead. Its modular building-block approach allows organizations to customize workflows across operations, product, and knowledge management."
   },
   {
     "id": "c_010",
@@ -97,7 +97,7 @@
     "description": "The fast way to build internal tools. Drag-and-drop building blocks to build apps that connect to any database or API.",
     "website": "https://retool.com",
     "logo": "https://cdn.brandfetch.io/id3V8wH0I2/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1726553476565",
-    "overview": "Retool is a low-code platform that lets developers build custom internal tools quickly using drag-and-drop components connected to data sources." 
+    "overview": "Retool is a low-code platform that enables developers to rapidly build internal tools by connecting drag-and-drop components to databases, APIs, and third-party services. It accelerates the creation of dashboards, admin panels, and operational apps without requiring full frontend builds. By reducing engineering overhead for internal systems, Retool helps teams ship tooling faster and iterate efficiently."
   },
   {
     "id": "c_011",
@@ -106,8 +106,8 @@
     "location": "San Francisco, CA",
     "description": "AI-powered search engine that provides direct answers to your questions using up-to-date information.",
     "website": "https://perplexity.ai",
-    "logo": "https://cdn.brandfetch.io/idNdawywEZ/w/800/h/800/theme/dark/idy0gCuAWE.png?c=1bxid64Mup7aczewSAYMX&t=1754453380972", 
-    "overview": "Perplexity is an AI-powered search engine that blends real-time web results with language models to provide accurate, source-backed answers." 
+    "logo": "https://cdn.brandfetch.io/idNdawywEZ/w/800/h/800/theme/dark/idy0gCuAWE.png?c=1bxid64Mup7aczewSAYMX&t=1754453380972",
+    "overview": "Perplexity is an AI-powered answer engine that blends real-time web search with large language models to deliver concise, source-backed responses. Unlike traditional search engines, it synthesizes information into direct answers while citing references for transparency. Its positioning at the intersection of search and generative AI makes it a notable player in the evolving information retrieval landscape."
   },
   {
     "id": "c_012",
@@ -117,7 +117,7 @@
     "description": "Workplace search and knowledge management powered by AI. Find what you need across all your company's apps.",
     "website": "https://glean.com",
     "logo": "https://cdn.brandfetch.io/idJB_yEUFy/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1691903441599",
-    "overview": "Glean is an AI-powered workplace search platform that indexes tools like Slack, Google Drive, and Jira to help employees find knowledge instantly." 
+    "overview": "Glean is an AI-powered enterprise search platform that connects and indexes tools such as Slack, Google Drive, Jira, and other workplace systems. It helps employees quickly surface relevant knowledge across fragmented applications, reducing information silos and improving productivity. By leveraging contextual understanding, Glean aims to become a central intelligence layer for internal enterprise workflows."
   },
   {
     "id": "c_013",
@@ -127,7 +127,7 @@
     "description": "The data network powering the fintech tools that millions of people rely on to live a healthier financial life.",
     "website": "https://plaid.com",
     "logo": "https://cdn.brandfetch.io/idly0-MZ4j/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1761296775183",
-    "overview": "Plaid provides secure APIs that connect consumer bank accounts to financial apps, powering services like budgeting tools and payments." 
+    "overview": "Plaid is a financial data network that connects consumer bank accounts to fintech applications through secure APIs. It powers budgeting apps, lending platforms, and payment services by enabling data access with user consent. Plaid’s infrastructure plays a critical role in the modern fintech ecosystem, acting as a bridge between financial institutions and digital financial products."
   },
   {
     "id": "c_014",
@@ -137,7 +137,7 @@
     "description": "The AI community building the future. Build, train and deploy state of the art models powered by the reference open source in machine learning.",
     "website": "https://huggingface.co",
     "logo": "https://huggingface.co/front/assets/huggingface_logo.svg",
-    "overview": "Hugging Face is a leading AI ecosystem providing open-source models, datasets, and tools for developers to train, share, and deploy machine learning models." 
+    "overview": "Hugging Face is a leading AI ecosystem and open-source platform providing models, datasets, and tools for machine learning practitioners. It enables developers to train, fine-tune, share, and deploy state-of-the-art models across NLP, computer vision, and multimodal AI. Its model hub and collaborative community have made it a central infrastructure layer in the open AI development landscape."
   },
   {
     "id": "c_015",
@@ -146,7 +146,157 @@
     "location": "San Francisco, CA",
     "description": "The data platform for AI. Accelerate the development of AI applications with high quality training data.",
     "website": "https://scale.com",
-    "logo": "https://cdn.brandfetch.io/idLdViRnHy/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668080408661",
-    "overview": "Scale AI provides high-quality labeled training data and infrastructure for organizations building computer vision, language, and autonomous systems." 
+    "logo": "https://cdn.brandfetch.io/idLdViRnHy/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1668208824853",
+    "overview": "Scale AI provides high-quality labeled training data and infrastructure tools for organizations building artificial intelligence applications. Its platform supports data annotation, model evaluation, and workflow automation for sectors including autonomous vehicles, defense, and enterprise AI. By focusing on data quality and scalability, Scale AI aims to accelerate the deployment of reliable machine learning systems."
+  },
+  {
+    "id": "c_016",
+    "name": "Razorpay",
+    "industry": "FinTech",
+    "location": "Bangalore, India",
+    "description": "Full-stack financial solutions company enabling businesses to accept, process, and disburse payments.",
+    "website": "https://razorpay.com",
+    "logo": "https://cdn.brandfetch.io/idHc4m3b7C/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1668516398215",
+    "overview": "Razorpay is one of India’s leading fintech platforms providing payment gateway services, banking solutions, and financial infrastructure for startups and enterprises. Beyond payments, it offers payroll, lending, and business banking tools, positioning itself as a comprehensive financial operating system for digital-first companies."
+  },
+  {
+    "id": "c_017",
+    "name": "Postman",
+    "industry": "Developer Tools",
+    "location": "Bangalore, India",
+    "description": "API platform for building and using APIs collaboratively.",
+    "website": "https://postman.com",
+    "logo": "https://cdn.brandfetch.io/idrVtxty7B/w/240/h/240/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1667906412376",
+    "overview": "Postman is a collaboration platform for API development that enables developers to design, test, document, and monitor APIs at scale. Used by millions of developers worldwide, Postman has evolved from a testing tool into a full API lifecycle management platform supporting enterprise-grade API governance."
+  },
+  {
+    "id": "c_018",
+    "name": "Freshworks",
+    "industry": "Enterprise Software",
+    "location": "Chennai, India",
+    "description": "Customer engagement software for businesses of all sizes.",
+    "website": "https://freshworks.com",
+    "logo": "https://cdn.brandfetch.io/idxPQTrv97/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1668070562341",
+    "overview": "Freshworks is a SaaS company providing customer support, CRM, IT service management, and engagement tools for businesses globally. Known for its product-led growth approach, Freshworks has built a strong presence among SMBs and mid-market companies seeking intuitive, scalable enterprise software solutions."
+  },
+  {
+    "id": "c_019",
+    "name": "Zepto",
+    "industry": "Consumer Tech",
+    "location": "Mumbai, India",
+    "description": "10-minute grocery delivery platform operating in major Indian cities.",
+    "website": "https://zeptonow.com",
+    "logo": "https://cdn.brandfetch.io/idmjhO-S03/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1764583854965",
+    "overview": "Zepto is a rapid commerce startup delivering groceries within minutes through a network of dark stores and hyperlocal logistics. It leverages demand forecasting, inventory optimization, and operational automation to scale quick-commerce operations in dense urban markets."
+  },
+  {
+    "id": "c_020",
+    "name": "CRED",
+    "industry": "FinTech",
+    "location": "Bangalore, India",
+    "description": "Members-only credit card bill payment and rewards platform.",
+    "website": "https://cred.club",
+    "logo": "https://cdn.brandfetch.io/id27bJP5LK/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1668516348931",
+    "overview": "CRED is a fintech platform that rewards users for timely credit card payments while expanding into lending, wealth management, and financial services. It focuses on premium users and aims to build a comprehensive financial ecosystem centered around high-trust consumers."
+  },
+  {
+    "id": "c_021",
+    "name": "OpenAI",
+    "industry": "Artificial Intelligence",
+    "location": "San Francisco, CA",
+    "description": "AI research and deployment company building general-purpose AI systems.",
+    "website": "https://openai.com",
+    "logo": "https://cdn.brandfetch.io/idR3duQxYl/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1749527355219",
+    "overview": "OpenAI develops large-scale artificial intelligence systems including GPT models, multimodal AI, and enterprise AI tools. It focuses on advancing safe and beneficial artificial general intelligence while providing APIs and consumer applications used globally."
+  },
+  {
+    "id": "c_022",
+    "name": "Figma",
+    "industry": "Design Tools",
+    "location": "San Francisco, CA",
+    "description": "Collaborative interface design tool used by product teams worldwide.",
+    "website": "https://figma.com",
+    "logo": "https://cdn.brandfetch.io/idZHcZ_i7F/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1729268241679",
+    "overview": "Figma is a browser-based collaborative design platform that enables real-time interface design, prototyping, and design system management. Its cloud-native approach has transformed product design workflows, allowing distributed teams to collaborate seamlessly."
+  },
+  {
+    "id": "c_023",
+    "name": "Databricks",
+    "industry": "Data & Analytics",
+    "location": "San Francisco, CA",
+    "description": "Unified data analytics platform built on Apache Spark.",
+    "website": "https://databricks.com",
+    "logo": "https://cdn.brandfetch.io/idSUrLOWbH/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1668081624532",
+    "overview": "Databricks provides a unified data and AI platform that integrates data engineering, data science, and machine learning workflows. Built around the Lakehouse architecture, it enables enterprises to manage large-scale analytics and AI workloads efficiently."
+  },
+  {
+    "id": "c_024",
+    "name": "BrowserStack",
+    "industry": "Developer Tools",
+    "location": "Mumbai, India",
+    "description": "Cross-browser testing platform for web and mobile applications.",
+    "website": "https://browserstack.com",
+    "logo": "https://cdn.brandfetch.io/idgkW_o1rq/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1668073060256",
+    "overview": "BrowserStack provides cloud-based infrastructure for testing web and mobile applications across multiple browsers, devices, and operating systems. It helps engineering teams ensure compatibility and performance without maintaining physical device labs."
+  },
+  {
+    "id": "c_025",
+    "name": "Pine Labs",
+    "industry": "FinTech",
+    "location": "Noida, India",
+    "description": "Merchant commerce platform providing payment and lending solutions.",
+    "website": "https://pinelabs.com",
+    "logo": "https://cdn.brandfetch.io/idw1KPxrxZ/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1700509854583",
+    "overview": "Pine Labs is a merchant commerce platform offering point-of-sale solutions, digital payments, and buy-now-pay-later services. It connects retailers, banks, and consumers through integrated financial and commerce infrastructure."
+  },
+  {
+    "id": "c_026",
+    "name": "Snowflake",
+    "industry": "Data & Analytics",
+    "location": "Bozeman, MT",
+    "description": "Cloud-native data platform for storage, processing, and analytics.",
+    "website": "https://snowflake.com",
+    "logo": "https://cdn.brandfetch.io/idJz-fGD_q/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1668517499361",
+    "overview": "Snowflake is a cloud-native data platform enabling organizations to consolidate data warehousing, analytics, and data sharing into a single scalable environment. It separates compute from storage to deliver flexible, high-performance analytics."
+  },
+  {
+    "id": "c_027",
+    "name": "Zoho",
+    "industry": "Enterprise Software",
+    "location": "Chennai, India",
+    "description": "Comprehensive suite of cloud-based business software applications.",
+    "website": "https://zoho.com",
+    "logo": "https://cdn.brandfetch.io/idssig0_jY/theme/dark/id0C7_joRD.svg?c=1bxid64Mup7aczewSAYMX&t=1687855850731",
+    "overview": "Zoho offers a broad portfolio of cloud-based business applications spanning CRM, finance, HR, collaboration, and productivity tools. With a strong focus on vertical integration and affordability, Zoho serves millions of users globally across SMB and enterprise segments."
+  },
+  {
+    "id": "c_028",
+    "name": "Meesho",
+    "industry": "E-commerce",
+    "location": "Bangalore, India",
+    "description": "Social commerce platform enabling small businesses to sell online.",
+    "website": "https://meesho.com",
+    "logo": "https://cdn.brandfetch.io/idyeTDctmi/w/800/h/800/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1668515580956",
+    "overview": "Meesho is a social commerce platform empowering small businesses and individual sellers to reach customers through digital channels. It simplifies logistics, payments, and catalog management to enable entrepreneurs across India to participate in e-commerce."
+  },
+  {
+    "id": "c_029",
+    "name": "UiPath",
+    "industry": "Enterprise Software",
+    "location": "New York, NY",
+    "description": "Robotic process automation platform for enterprise workflows.",
+    "website": "https://uipath.com",
+    "logo": "https://cdn.brandfetch.io/idEaAShmlC/w/300/h/300/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1761636948167",
+    "overview": "UiPath provides robotic process automation (RPA) solutions that enable enterprises to automate repetitive business workflows. Its platform integrates AI-powered automation, process mining, and low-code tools to improve operational efficiency."
+  },
+  {
+    "id": "c_030",
+    "name": "Zomato",
+    "industry": "Consumer Tech",
+    "location": "Gurgaon, India",
+    "description": "Food delivery and restaurant discovery platform operating globally.",
+    "website": "https://zomato.com",
+    "logo": "https://cdn.brandfetch.io/idEql8nEWn/w/2048/h/2048/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1724311594781",
+    "overview": "Zomato is a food delivery and restaurant discovery platform that connects consumers with restaurants through digital ordering, logistics, and subscription programs. It leverages data analytics and supply chain optimization to manage large-scale food delivery operations."
   }
 ]

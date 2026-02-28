@@ -49,7 +49,7 @@ export default function ListDetailPage({ params }: { params: Promise<{ id: strin
     if (!list || list.companies.length === 0) return;
     const header = "Name,Industry,Location,Website,Description\n";
     const rows = list.companies.map(c =>
-      `"${c.name}","${c.industry}","${c.location}","${c.website}","${c.description.replace(/"/g, '""')}"`
+      `"${c.name}","${c.industry}","${c.location}","${c.website}","${c.overview.replace(/"/g, '""')}"`
     ).join("\n");
 
     const blob = new Blob([header + rows], { type: "text/csv;charset=utf-8;" });
@@ -170,7 +170,7 @@ export default function ListDetailPage({ params }: { params: Promise<{ id: strin
                       </Link>
                     </h3>
                     <p className="mt-1 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">
-                      {company.description}
+                      {company.overview}
                     </p>
                   </div>
                   <div className="mt-4 flex items-center justify-between border-t border-neutral-100 dark:border-neutral-800 pt-4 text-xs text-neutral-500 dark:text-neutral-400">

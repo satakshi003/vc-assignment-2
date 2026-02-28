@@ -92,7 +92,7 @@ export default function CompanyProfilePage({ params }: { params: Promise<{ id: s
         <div className="flex flex-col gap-8 lg:col-span-1">
           <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6">
             <h3 className="mb-4 font-semibold text-neutral-900 dark:text-neutral-100">Overview</h3>
-            <p className="text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">{company.description}</p>
+            <p className="text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">{company.overview}</p>
           </div>
 
           <div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6">
@@ -106,7 +106,7 @@ export default function CompanyProfilePage({ params }: { params: Promise<{ id: s
             companyId={company.id}
             website={company.website}
             companyName={company.name}
-            overview={company.description}
+            overview={company.overview}
           />
         </div>
       </div>
