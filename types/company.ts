@@ -13,11 +13,21 @@ export interface SortConfig {
   direction: 'asc' | 'desc';
 }
 
+export interface Signal {
+  id: string;
+  title: string;
+  category: "Hiring" | "Product" | "Growth" | "Funding" | "Content" | "Other";
+  confidence: "High" | "Medium" | "Low";
+  description: string;
+  detectedFrom: string;
+}
+
 export interface EnrichedData {
   summary: string;
   whatTheyDo: string[];
   keywords: string[];
-  derivedSignals: string[];
+  derivedSignals?: string[]; // Legacy
+  signals?: Signal[];
   sources: string[];
   timestamp: string;
 }

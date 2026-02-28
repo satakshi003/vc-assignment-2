@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { Sparkles, Loader2, CheckCircle2, Clock, Globe, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { EnrichedData } from "@/types/company";
+import { EnrichedData, Signal } from "@/types/company";
+import SignalsTimeline from "./SignalsTimeline";
 
 interface EnrichmentPanelProps {
   companyId: string;
@@ -17,12 +18,27 @@ export default function EnrichmentPanel({ companyId, website, companyName, overv
   const [data, setData] = useState<EnrichedData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // Provide backward compatibility for legacy string-based signals
+  const migrateSignals = (parsed: any): EnrichedData => {
+    if (parsed.derivedSignals && (!parsed.signals || parsed.signals.length === 0)) {
+      parsed.signals = parsed.derivedSignals.map((sig: string, i: number) => ({
+        id: `legacy-${i}-${Math.random()}`,
+        title: "Disclosed Signal",
+        category: "Other",
+        confidence: "Medium",
+        description: sig,
+        detectedFrom: "Website Content"
+      } as Signal));
+    }
+    return parsed;
+  };
+
   // Load cached enrichment data
   useEffect(() => {
     const cached = localStorage.getItem(`enrichment-${companyId}`);
     if (cached) {
       try {
-        setData(JSON.parse(cached));
+        setData(migrateSignals(JSON.parse(cached)));
       } catch {
         console.error("Failed to parse cached enrichment data");
       }
@@ -43,7 +59,8 @@ export default function EnrichmentPanel({ companyId, website, companyName, overv
         throw new Error("Failed to enrich company data.");
       }
 
-      const result: EnrichedData = await response.json();
+      const rawResult = await response.json();
+      const result: EnrichedData = migrateSignals(rawResult);
       setData(result);
       localStorage.setItem(`enrichment-${companyId}`, JSON.stringify(result));
     } catch (err: unknown) {
@@ -144,29 +161,20 @@ export default function EnrichmentPanel({ companyId, website, companyName, overv
                 <p className="text-sm leading-relaxed text-neutral-800 dark:text-neutral-200">{data.summary}</p>
               </div>
 
-              <div className="mb-8 grid gap-8 md:grid-cols-2">
-                <div>
-                  <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">What They Do</h4>
-                  <ul className="space-y-2">
-                    {data.whatTheyDo?.map((item, idx) => (
-                      <li key={idx} className="flex gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500 dark:text-green-400" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">Derived Signals</h4>
-                  <ul className="space-y-2">
-                    {data.derivedSignals?.map((signal, idx) => (
-                      <li key={idx} className="flex gap-2 text-sm text-neutral-700 dark:text-neutral-300">
-                        <Sparkles className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-500 dark:text-blue-400" />
-                        <span>{signal}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="mb-8">
+                <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">What They Do</h4>
+                <ul className="space-y-2">
+                  {data.whatTheyDo?.map((item, idx) => (
+                    <li key={idx} className="flex gap-2 text-sm text-neutral-700 dark:text-neutral-300">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-500 dark:text-green-400" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mb-8">
+                <SignalsTimeline signals={data.signals || []} />
               </div>
 
               <div className="mb-8">

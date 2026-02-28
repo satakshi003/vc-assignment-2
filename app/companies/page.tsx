@@ -7,10 +7,12 @@ import { motion } from "framer-motion";
 import CompanyTable from "@/components/CompanyTable";
 import companiesData from "@/data/companies.json";
 import { SortConfig } from "@/types/company";
+import { useToast } from "@/lib/useToast";
 
 
 function CompaniesContent() {
   const searchParams = useSearchParams();
+  const { addToast } = useToast();
 
   const [search, setSearch] = useState(searchParams?.get("q") || "");
   const [industryFilter, setIndustryFilter] = useState(searchParams?.get("industry") || "All");
@@ -108,9 +110,17 @@ function CompaniesContent() {
                   timestamp: new Date().toISOString()
                 });
                 localStorage.setItem("saved-searches", JSON.stringify(saved));
-                alert("Search saved! View in Saved Queries.");
+                addToast({
+                  title: "Search Saved",
+                  description: "View it in Saved Queries.",
+                  type: "success"
+                });
               } else {
-                alert("Please add a search term or filter to save.");
+                addToast({
+                  title: "Cannot Save Search",
+                  description: "Add a search term or filter first.",
+                  type: "error"
+                });
               }
             }}
             className="flex items-center gap-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-4 py-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 shadow-sm transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800"

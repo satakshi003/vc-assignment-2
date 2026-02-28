@@ -18,12 +18,20 @@ Scraped Website Content (might be incomplete if blocked):
 ${websiteText}
 """
 
-Return valid JSON only with exactly this schema:
+Return valid JSON only with exactly this schema, replacing the old string list with exactly 2 to 4 high-quality structured signals. Ensure categories are one of: Hiring, Product, Growth, Funding, Content, or Other.
 {
   "summary": "1-2 sentences summarizing what the company does and its value proposition",
   "whatTheyDo": ["bullet 1", "bullet 2", "bullet 3"], 
   "keywords": ["tag1", "tag2"],
-  "derivedSignals": ["signal 1", "signal 2"],
+  "signals": [
+    {
+      "title": "Short signal name",
+      "category": "Hiring | Product | Growth | Funding | Content | Other",
+      "confidence": "High | Medium | Low",
+      "description": "1-2 sentence explanation of why this is a meaningful VC signal. Avoid generic fluff.",
+      "detectedFrom": "Short excerpt or indicator directly from the website text"
+    }
+  ],
   "sources": ["${url}"]
 }
 

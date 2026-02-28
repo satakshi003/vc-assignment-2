@@ -9,9 +9,11 @@ import companiesData from "@/data/companies.json";
 import { Company } from "@/types/company";
 import NotesSection from "@/components/NotesSection";
 import EnrichmentPanel from "@/components/EnrichmentPanel";
+import { useToast } from "@/lib/useToast";
 
 export default function CompanyProfilePage({ params }: { params: Promise<{ id: string }> }) {
   const unwrappedParams = use(params);
+  const { addToast } = useToast();
   const [company, setCompany] = useState<Company | null>(null);
 
   useEffect(() => {
@@ -35,9 +37,17 @@ export default function CompanyProfilePage({ params }: { params: Promise<{ id: s
     if (!saved.some((c: Company) => c.id === company.id)) {
       saved.push(company);
       localStorage.setItem("saved-companies", JSON.stringify(saved));
-      alert("Saved to your list! (Check My Lists)");
+      addToast({
+        title: "Company Saved",
+        description: "Added to My Lists.",
+        type: "success"
+      });
     } else {
-      alert("Already in your list.");
+      addToast({
+        title: "Already Saved",
+        description: "This company is already in your list.",
+        type: "info"
+      });
     }
   };
 
