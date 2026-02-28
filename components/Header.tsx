@@ -93,12 +93,12 @@ export default function Header({ onMenuToggle }: HeaderProps) {
       {/* Right actions */}
       <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
         <ThemeToggle />
-        <button className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 relative hidden sm:block">
+        {/* <button className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 relative hidden sm:block">
           <Bell className="h-5 w-5" />
         </button>
         <button className="flex items-center gap-2 rounded-full p-1 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100">
           <UserCircle className="h-6 w-6" />
-        </button>
+        </button> */}
       </div>
     </header>
   );

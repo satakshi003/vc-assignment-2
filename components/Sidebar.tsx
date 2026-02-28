@@ -68,7 +68,7 @@ export default function Sidebar({ onNavigate }: SidebarProps) {
         })}
       </div>
 
-      {/* Bottom settings */}
+      {/* Bottom settings
       <div className="mt-auto border-t border-neutral-200 dark:border-neutral-800 p-4">
         <Link
           href="#"
@@ -77,7 +77,7 @@ export default function Sidebar({ onNavigate }: SidebarProps) {
           <Settings className="h-4 w-4 flex-shrink-0 text-neutral-500 dark:text-neutral-500" />
           Settings
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }
