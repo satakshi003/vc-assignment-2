@@ -1,53 +1,105 @@
-import { Company } from "@/types/company";
-import { ChevronRight, Globe, MapPin } from "lucide-react";
+import { Company, SortConfig } from "@/types/company";
+import { ChevronRight, Globe, MapPin, ChevronUp, ChevronDown } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 interface CompanyTableProps {
   companies: Company[];
+  sortConfig?: SortConfig;
+  onSort?: (key: string) => void;
 }
 
-export default function CompanyTable({ companies }: CompanyTableProps) {
+export default function CompanyTable({ companies, sortConfig, onSort }: CompanyTableProps) {
   const router = useRouter();
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05
+      }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+  };
 
   if (companies.length === 0) {
     return (
-      <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-neutral-200 border-dashed bg-white">
-        <p className="text-sm text-neutral-500">No companies found matching your criteria.</p>
+      <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-neutral-200 dark:border-neutral-800 border-dashed bg-white dark:bg-neutral-900">
+        <p className="text-sm text-neutral-500 dark:text-neutral-400">No companies found matching your criteria.</p>
       </div>
     );
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-neutral-200 bg-white">
-      <table className="min-w-full divide-y divide-neutral-200">
-        <thead className="bg-neutral-50">
+    <div className="overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+      <table className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-800">
+        <thead className="bg-neutral-50 dark:bg-neutral-950">
           <tr>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-neutral-500">
-              Company
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              <button
+                onClick={() => onSort && onSort("name")}
+                className="group flex items-center gap-1 hover:text-neutral-900 dark:hover:text-neutral-100 focus:outline-none"
+              >
+                Company
+                <span className="flex flex-col">
+                  <ChevronUp className={cn("h-3 w-3 -mb-1", sortConfig?.key === "name" && sortConfig.direction === "asc" ? "text-blue-600 dark:text-blue-400" : "text-neutral-300 dark:text-neutral-600 group-hover:text-neutral-400")} />
+                  <ChevronDown className={cn("h-3 w-3", sortConfig?.key === "name" && sortConfig.direction === "desc" ? "text-blue-600 dark:text-blue-400" : "text-neutral-300 dark:text-neutral-600 group-hover:text-neutral-400")} />
+                </span>
+              </button>
             </th>
-            <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-neutral-500">
-              Industry
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              <button
+                onClick={() => onSort && onSort("industry")}
+                className="group flex items-center gap-1 hover:text-neutral-900 dark:hover:text-neutral-100 focus:outline-none"
+              >
+                Industry
+                <span className="flex flex-col">
+                  <ChevronUp className={cn("h-3 w-3 -mb-1", sortConfig?.key === "industry" && sortConfig.direction === "asc" ? "text-blue-600 dark:text-blue-400" : "text-neutral-300 dark:text-neutral-600 group-hover:text-neutral-400")} />
+                  <ChevronDown className={cn("h-3 w-3", sortConfig?.key === "industry" && sortConfig.direction === "desc" ? "text-blue-600 dark:text-blue-400" : "text-neutral-300 dark:text-neutral-600 group-hover:text-neutral-400")} />
+                </span>
+              </button>
             </th>
-            <th scope="col" className="hidden px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-neutral-500 md:table-cell">
-              Location
+            <th scope="col" className="hidden px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-neutral-500 dark:text-neutral-400 md:table-cell">
+              <button
+                onClick={() => onSort && onSort("location")}
+                className="group flex items-center gap-1 hover:text-neutral-900 dark:hover:text-neutral-100 focus:outline-none"
+              >
+                Location
+                <span className="flex flex-col">
+                  <ChevronUp className={cn("h-3 w-3 -mb-1", sortConfig?.key === "location" && sortConfig.direction === "asc" ? "text-blue-600 dark:text-blue-400" : "text-neutral-300 dark:text-neutral-600 group-hover:text-neutral-400")} />
+                  <ChevronDown className={cn("h-3 w-3", sortConfig?.key === "location" && sortConfig.direction === "desc" ? "text-blue-600 dark:text-blue-400" : "text-neutral-300 dark:text-neutral-600 group-hover:text-neutral-400")} />
+                </span>
+              </button>
             </th>
             <th scope="col" className="relative px-6 py-3">
               <span className="sr-only">View</span>
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-neutral-200 bg-white">
+        <motion.tbody
+          key={companies[0]?.id || 'empty'}
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="divide-y divide-neutral-200 dark:divide-neutral-800 bg-white dark:bg-neutral-900"
+        >
           {companies.map((company) => (
-            <tr
+            <motion.tr
+              variants={itemVariants}
               key={company.id}
               onClick={() => router.push(`/companies/${company.id}`)}
-              className="group cursor-pointer transition-colors hover:bg-neutral-50"
+              className="group cursor-pointer transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
             >
               <td className="whitespace-nowrap px-6 py-4">
                 <div className="flex items-center">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">
                     <img
                       src={company.logo}
                       alt={`${company.name} logo`}
@@ -56,10 +108,10 @@ export default function CompanyTable({ companies }: CompanyTableProps) {
                     />
                   </div>
                   <div className="ml-4">
-                    <div className="font-medium text-neutral-900 group-hover:text-black">
+                    <div className="font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-black dark:group-hover:text-white transition-colors">
                       {company.name}
                     </div>
-                    <div className="flex items-center gap-1 text-sm text-neutral-500">
+                    <div className="flex items-center gap-1 text-sm text-neutral-500 dark:text-neutral-400">
                       <Globe className="h-3 w-3" />
                       <a href={company.website} target="_blank" rel="noopener noreferrer" className="hover:underline flex-1 truncate max-w-[150px] relative z-10" onClick={(e) => e.stopPropagation()}>
                         {company.website.replace(/^https?:\/\/(www\.)?/, '')}
@@ -71,23 +123,23 @@ export default function CompanyTable({ companies }: CompanyTableProps) {
               <td className="whitespace-nowrap px-6 py-4">
                 <span className={cn(
                   "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium",
-                  "bg-blue-50 text-blue-700 ring-1 ring-inset ring-blue-700/10"
+                  "bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-400/20"
                 )}>
                   {company.industry}
                 </span>
               </td>
-              <td className="hidden whitespace-nowrap px-6 py-4 text-sm text-neutral-500 md:table-cell">
+              <td className="hidden whitespace-nowrap px-6 py-4 text-sm text-neutral-500 dark:text-neutral-400 md:table-cell">
                 <div className="flex items-center gap-1">
                   <MapPin className="h-3 w-3" />
                   {company.location}
                 </div>
               </td>
               <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                <ChevronRight className="ml-auto h-5 w-5 text-neutral-400 group-hover:text-neutral-900" />
+                <ChevronRight className="ml-auto h-5 w-5 text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-neutral-300 transition-transform group-hover:translate-x-1" />
               </td>
-            </tr>
+            </motion.tr>
           ))}
-        </tbody>
+        </motion.tbody>
       </table>
     </div>
   );

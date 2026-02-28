@@ -3,8 +3,10 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Bookmark, Search as SearchIcon } from "lucide-react";
+import { motion } from "framer-motion";
 import CompanyTable from "@/components/CompanyTable";
 import companiesData from "@/data/companies.json";
+import { SortConfig } from "@/types/company";
 
 
 function CompaniesContent() {
@@ -13,6 +15,7 @@ function CompaniesContent() {
   const [search, setSearch] = useState(searchParams?.get("q") || "");
   const [industryFilter, setIndustryFilter] = useState(searchParams?.get("industry") || "All");
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortConfig, setSortConfig] = useState<SortConfig>({ key: "name", direction: "asc" });
   const itemsPerPage = 5;
 
   // Hydrate states if search params change
@@ -34,19 +37,32 @@ function CompaniesContent() {
     return matchesSearch && matchesIndustry;
   });
 
-  // Sort A-Z by name
-  const sorted = [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+  // Sort based on sortConfig
+  const sorted = [...filtered].sort((a, b) => {
+    // We explicitly cast here because we know our sort keys map perfectly to Company string properties
+    const aValue = String(a[sortConfig.key as keyof typeof a]).toLowerCase();
+    const bValue = String(b[sortConfig.key as keyof typeof b]).toLowerCase();
+
+    if (aValue < bValue) return sortConfig.direction === "asc" ? -1 : 1;
+    if (aValue > bValue) return sortConfig.direction === "asc" ? 1 : -1;
+    return 0;
+  });
 
   // Paginate
   const totalPages = Math.ceil(sorted.length / itemsPerPage);
   const paginated = sorted.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (
-    <div className="flex h-full flex-col">
-      <div className="flex items-center justify-between border-b border-neutral-200 px-8 py-6">
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="flex h-full flex-col"
+    >
+      <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 px-8 py-6">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">Companies</h1>
-          <p className="mt-1 text-sm text-neutral-500">Discover and enrich startup data.</p>
+          <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">Companies</h1>
+          <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">Discover and enrich startup data.</p>
         </div>
       </div>
 
@@ -60,7 +76,7 @@ function CompaniesContent() {
               <input
                 type="text"
                 placeholder="Search companies by name..."
-                className="w-full rounded-md border border-neutral-300 py-2 pl-10 pr-3 text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+                className="w-full rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 py-2 pl-10 pr-3 text-sm text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-black dark:focus:border-white focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
                 value={search}
                 onChange={(e) => {
                   setSearch(e.target.value);
@@ -69,7 +85,7 @@ function CompaniesContent() {
               />
             </div>
             <select
-              className="w-full max-w-[200px] rounded-md border border-neutral-300 px-3 py-2 text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black"
+              className="w-full max-w-[200px] rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2 text-sm text-neutral-900 dark:text-neutral-100 focus:border-black dark:focus:border-white focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white"
               value={industryFilter}
               onChange={(e) => {
                 setIndustryFilter(e.target.value);
@@ -97,32 +113,42 @@ function CompaniesContent() {
                 alert("Please add a search term or filter to save.");
               }
             }}
-            className="flex items-center gap-2 rounded-md border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-neutral-700 shadow-sm transition-colors hover:bg-neutral-50"
+            className="flex items-center gap-2 rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-4 py-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 shadow-sm transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800"
           >
             <Bookmark className="h-4 w-4" />
             Save Search
           </button>
         </div>
 
-        <CompanyTable companies={paginated} />
+        <CompanyTable
+          companies={paginated}
+          sortConfig={sortConfig}
+          onSort={(key) => {
+            setSortConfig((prev) => ({
+              key,
+              direction: prev.key === key && prev.direction === 'asc' ? 'desc' : 'asc'
+            }));
+            setCurrentPage(1); // Reset to page 1 on sort change
+          }}
+        />
 
         {totalPages > 1 && (
           <div className="mt-6 flex items-center justify-between">
-            <p className="text-sm text-neutral-500">
-              Showing <span className="font-medium">{(currentPage - 1) * itemsPerPage + 1}</span> to <span className="font-medium">{Math.min(currentPage * itemsPerPage, sorted.length)}</span> of <span className="font-medium">{sorted.length}</span> results
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">
+              Showing <span className="font-medium text-neutral-900 dark:text-neutral-100">{(currentPage - 1) * itemsPerPage + 1}</span> to <span className="font-medium text-neutral-900 dark:text-neutral-100">{Math.min(currentPage * itemsPerPage, sorted.length)}</span> of <span className="font-medium text-neutral-900 dark:text-neutral-100">{sorted.length}</span> results
             </p>
             <div className="flex gap-2">
               <button
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(p => p - 1)}
-                className="rounded-md border border-neutral-300 px-3 py-1 text-sm font-medium text-neutral-700 hover:bg-neutral-50 disabled:opacity-50"
+                className="rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-1 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 disabled:opacity-50 dark:disabled:opacity-50"
               >
                 Previous
               </button>
               <button
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage(p => p + 1)}
-                className="rounded-md border border-neutral-300 px-3 py-1 text-sm font-medium text-neutral-700 hover:bg-neutral-50 disabled:opacity-50"
+                className="rounded-md border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-1 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 disabled:opacity-50 dark:disabled:opacity-50"
               >
                 Next
               </button>
@@ -130,7 +156,7 @@ function CompaniesContent() {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

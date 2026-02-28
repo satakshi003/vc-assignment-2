@@ -15,10 +15,10 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-full w-64 flex-col border-r border-neutral-200 bg-neutral-50/50">
-      <div className="flex h-14 items-center border-b border-neutral-200 px-4">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-neutral-900">
-          <div className="flex h-6 w-6 items-center justify-center rounded bg-black text-white">
+    <div className="flex h-full w-64 flex-col border-r border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-950/50">
+      <div className="flex h-14 items-center border-b border-neutral-200 dark:border-neutral-800 px-4">
+        <Link href="/" className="flex items-center gap-2 font-semibold text-neutral-900 dark:text-neutral-100">
+          <div className="flex h-6 w-6 items-center justify-center rounded bg-black dark:bg-white text-white dark:text-black">
             <LayoutDashboard className="h-4 w-4" />
           </div>
           <span>Ventura</span>
@@ -38,23 +38,23 @@ export default function Sidebar() {
               className={cn(
                 "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
                 isActive
-                  ? "bg-neutral-200/50 text-neutral-900"
-                  : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
+                  ? "bg-neutral-200/50 dark:bg-neutral-800/50 text-neutral-900 dark:text-neutral-100"
+                  : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:text-neutral-900 dark:hover:text-neutral-100"
               )}
             >
-              <item.icon className={cn("h-4 w-4", isActive ? "text-neutral-900" : "text-neutral-500")} />
+              <item.icon className={cn("h-4 w-4", isActive ? "text-neutral-900 dark:text-neutral-100" : "text-neutral-500 dark:text-neutral-500")} />
               {item.name}
             </Link>
           );
         })}
       </div>
 
-      <div className="mt-auto border-t border-neutral-200 p-4">
+      <div className="mt-auto border-t border-neutral-200 dark:border-neutral-800 p-4">
         <Link
           href="#"
-          className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
+          className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:text-neutral-900 dark:hover:text-neutral-100"
         >
-          <Settings className="h-4 w-4 text-neutral-500" />
+          <Settings className="h-4 w-4 text-neutral-500 dark:text-neutral-500" />
           Settings
         </Link>
       </div>

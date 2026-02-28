@@ -8,6 +8,11 @@ export interface Company {
   logo: string;
 }
 
+export interface SortConfig {
+  key: string;
+  direction: 'asc' | 'desc';
+}
+
 export interface EnrichedData {
   summary: string;
   whatTheyDo: string[];
