@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Black rounded square background -->
+  <rect width="32" height="32" rx="7" ry="7" fill="#000000"/>
+  <!-- LayoutDashboard icon (Lucide), scaled to fit inside the square, white -->
+  <!-- Top-left panel -->
+  <rect x="6" y="6" width="8" height="8" rx="1" fill="white"/>
+  <!-- Top-right panel -->
+  <rect x="18" y="6" width="8" height="8" rx="1" fill="white"/>
+  <!-- Bottom-right panel -->
+  <rect x="18" y="18" width="8" height="8" rx="1" fill="white"/>
+  <!-- Bottom-left panel (taller — matches LayoutDashboard style) -->
+  <rect x="6" y="18" width="8" height="8" rx="1" fill="white"/>
+</svg>
