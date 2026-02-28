@@ -291,7 +291,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-2">
               {[
-                "Next.js 14",
+                "Next.js 16",
                 "Gemini AI",
                 "TypeScript",
                 "Framer Motion",
