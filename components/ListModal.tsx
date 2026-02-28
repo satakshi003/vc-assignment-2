@@ -48,9 +48,11 @@ export default function ListModal({ isOpen, onClose, companies }: ListModalProps
         next.delete(list.id);
         return next;
       });
+      const rmCount = companies.length;
+      const rmLabel = rmCount === 1 ? "company" : "companies";
       addToast({
         title: "Removed from List",
-        description: `Removed from ${list.name}`,
+        description: `${rmCount} ${rmLabel} removed from ${list.name}.`,
         type: "info"
       });
     } else {
@@ -62,9 +64,11 @@ export default function ListModal({ isOpen, onClose, companies }: ListModalProps
         next.add(list.id);
         return next;
       });
+      const addCount = companies.length;
+      const addLabel = addCount === 1 ? "company" : "companies";
       addToast({
         title: "Added to List",
-        description: `Added ${companies.length} to ${list.name}`,
+        description: `${addCount} ${addLabel} added to ${list.name}.`,
         type: "success"
       });
     }

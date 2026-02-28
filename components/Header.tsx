@@ -2,7 +2,7 @@
 
 import { Search, Bell, UserCircle } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { useToast } from "@/lib/useToast";
 
@@ -10,6 +10,7 @@ export default function Header() {
   const [search, setSearch] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
+  const pathname = usePathname();
   const { addToast } = useToast();
 
   useEffect(() => {
@@ -26,16 +27,26 @@ export default function Header() {
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const query = search.trim();
+
       if (query) {
         addToast({
           title: "Searching companies",
           description: `Results for "${query}"`,
           type: "info"
         });
-        router.push(`/companies?q=${encodeURIComponent(query)}`);
+
+        // If already on /companies, preserve existing params (e.g. industry filter)
+        if (pathname?.startsWith("/companies")) {
+          const params = new URLSearchParams(window.location.search);
+          params.set("q", query);
+          router.push(`/companies?${params.toString()}`);
+        } else {
+          router.push(`/companies?q=${encodeURIComponent(query)}`);
+        }
       } else {
         router.push(`/companies`);
       }
+
       setSearch("");
       inputRef.current?.blur();
     }

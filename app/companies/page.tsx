@@ -191,31 +191,33 @@ function CompaniesContent() {
 
         <AnimatePresence>
           {selectedIds.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              className="fixed bottom-8 left-1/2 ml-32 z-40 -translate-x-1/2 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-6 py-4 shadow-xl flex items-center gap-6"
-            >
-              <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
-                {selectedIds.length} {selectedIds.length === 1 ? 'company' : 'companies'} selected
-              </span>
-              <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-800" />
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setSelectedIds([])}
-                  className="rounded-full px-4 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-                >
-                  Clear
-                </button>
-                <button
-                  onClick={() => setShowBulkModal(true)}
-                  className="rounded-full bg-black dark:bg-white px-4 py-2 text-sm font-medium text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm"
-                >
-                  Add to List
-                </button>
-              </div>
-            </motion.div>
+            <div className="fixed bottom-8 left-0 right-0 z-40 flex justify-center pointer-events-none">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                className="pointer-events-auto rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-6 py-4 shadow-xl flex items-center gap-6"
+              >
+                <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                  {selectedIds.length} {selectedIds.length === 1 ? 'company' : 'companies'} selected
+                </span>
+                <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-800" />
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setSelectedIds([])}
+                    className="rounded-full px-4 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                  >
+                    Clear
+                  </button>
+                  <button
+                    onClick={() => setShowBulkModal(true)}
+                    className="rounded-full bg-black dark:bg-white px-4 py-2 text-sm font-medium text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm"
+                  >
+                    Add to List
+                  </button>
+                </div>
+              </motion.div>
+            </div>
           )}
         </AnimatePresence>
 
