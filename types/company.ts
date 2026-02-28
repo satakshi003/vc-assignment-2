@@ -13,6 +13,14 @@ export interface SortConfig {
   direction: 'asc' | 'desc';
 }
 
+export interface VCList {
+  id: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
+  companies: Company[];
+}
+
 export interface Signal {
   id: string;
   title: string;

@@ -10,11 +10,13 @@ import { Company } from "@/types/company";
 import NotesSection from "@/components/NotesSection";
 import EnrichmentPanel from "@/components/EnrichmentPanel";
 import { useToast } from "@/lib/useToast";
+import ListModal from "@/components/ListModal";
 
 export default function CompanyProfilePage({ params }: { params: Promise<{ id: string }> }) {
   const unwrappedParams = use(params);
   const { addToast } = useToast();
   const [company, setCompany] = useState<Company | null>(null);
+  const [showListModal, setShowListModal] = useState(false);
 
   useEffect(() => {
     // We explicitly cast the local json parse to Company[] to satisfy TS typing
@@ -32,23 +34,7 @@ export default function CompanyProfilePage({ params }: { params: Promise<{ id: s
   }
 
   const handleSaveToList = () => {
-    // Basic implementation to push to a default list for now
-    const saved = JSON.parse(localStorage.getItem("saved-companies") || "[]");
-    if (!saved.some((c: Company) => c.id === company.id)) {
-      saved.push(company);
-      localStorage.setItem("saved-companies", JSON.stringify(saved));
-      addToast({
-        title: "Company Saved",
-        description: "Added to My Lists.",
-        type: "success"
-      });
-    } else {
-      addToast({
-        title: "Already Saved",
-        description: "This company is already in your list.",
-        type: "info"
-      });
-    }
+    setShowListModal(true);
   };
 
   return (
@@ -124,6 +110,12 @@ export default function CompanyProfilePage({ params }: { params: Promise<{ id: s
           />
         </div>
       </div>
+
+      <ListModal
+        isOpen={showListModal}
+        onClose={() => setShowListModal(false)}
+        companies={company ? [company] : []}
+      />
     </motion.div>
   );
 }

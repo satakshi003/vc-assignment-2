@@ -3,11 +3,12 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Bookmark, Search as SearchIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import CompanyTable from "@/components/CompanyTable";
 import companiesData from "@/data/companies.json";
-import { SortConfig } from "@/types/company";
+import { SortConfig, Company } from "@/types/company";
 import { useToast } from "@/lib/useToast";
+import ListModal from "@/components/ListModal";
 
 
 function CompaniesContent() {
@@ -18,6 +19,8 @@ function CompaniesContent() {
   const [industryFilter, setIndustryFilter] = useState(searchParams?.get("industry") || "All");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortConfig, setSortConfig] = useState<SortConfig>({ key: "name", direction: "asc" });
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [showBulkModal, setShowBulkModal] = useState(false);
   const itemsPerPage = 5;
 
   // Hydrate states if search params change
@@ -29,6 +32,11 @@ function CompaniesContent() {
       if (ind !== null) setIndustryFilter(ind);
     }
   }, [searchParams]);
+
+  // Clear selections when paginated list content visually changes
+  useEffect(() => {
+    setSelectedIds([]);
+  }, [search, industryFilter, currentPage]);
 
   const industries = ["All", ...Array.from(new Set(companiesData.map((c) => c.industry as string)))];
 
@@ -140,6 +148,21 @@ function CompaniesContent() {
             }));
             setCurrentPage(1); // Reset to page 1 on sort change
           }}
+          selectedIds={selectedIds}
+          onSelect={(id, checked) => {
+            setSelectedIds(prev =>
+              checked ? [...prev, id] : prev.filter(x => x !== id)
+            );
+          }}
+          onSelectAll={(checked) => {
+            if (checked) {
+              const visibleIds = paginated.map(c => c.id);
+              setSelectedIds(prev => Array.from(new Set([...prev, ...visibleIds])));
+            } else {
+              const visibleIds = new Set(paginated.map(c => c.id));
+              setSelectedIds(prev => prev.filter(id => !visibleIds.has(id)));
+            }
+          }}
         />
 
         {totalPages > 1 && (
@@ -165,6 +188,45 @@ function CompaniesContent() {
             </div>
           </div>
         )}
+
+        <AnimatePresence>
+          {selectedIds.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="fixed bottom-8 left-1/2 ml-32 z-40 -translate-x-1/2 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-6 py-4 shadow-xl flex items-center gap-6"
+            >
+              <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                {selectedIds.length} {selectedIds.length === 1 ? 'company' : 'companies'} selected
+              </span>
+              <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-800" />
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setSelectedIds([])}
+                  className="rounded-full px-4 py-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                >
+                  Clear
+                </button>
+                <button
+                  onClick={() => setShowBulkModal(true)}
+                  className="rounded-full bg-black dark:bg-white px-4 py-2 text-sm font-medium text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm"
+                >
+                  Add to List
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <ListModal
+          isOpen={showBulkModal}
+          onClose={() => {
+            setShowBulkModal(false);
+            setSelectedIds([]); // Clear selection when modal closes successfully 
+          }}
+          companies={(companiesData as Company[]).filter(c => selectedIds.includes(c.id))}
+        />
       </div>
     </motion.div>
   );
