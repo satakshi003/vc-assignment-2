@@ -193,10 +193,11 @@ function CompaniesContent() {
           {selectedIds.length > 0 && (
             <div className="fixed bottom-8 left-0 right-0 z-40 flex justify-center pointer-events-none">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                className="pointer-events-auto rounded-xl sm:rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 sm:px-6 py-3 sm:py-4 shadow-xl flex flex-col sm:flex-row items-center gap-3 sm:gap-6 w-[calc(100%-2rem)] sm:w-auto"
+                initial={{ opacity: 0, scale: 0.95, y: 40 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 40 }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                className="pointer-events-auto rounded-2xl sm:rounded-full border border-neutral-200/50 dark:border-white/10 bg-white/80 dark:bg-neutral-900/80 px-4 sm:px-6 py-3 sm:py-4 shadow-2xl backdrop-blur-md flex flex-col sm:flex-row items-center gap-3 sm:gap-6 w-[calc(100%-2rem)] sm:w-auto"
               >
                 <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
                   {selectedIds.length} {selectedIds.length === 1 ? 'company' : 'companies'} selected

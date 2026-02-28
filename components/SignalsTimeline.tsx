@@ -58,7 +58,7 @@ export default function SignalsTimeline({ signals = [] }: SignalsTimelineProps) 
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="relative before:absolute before:inset-y-0 before:left-3 before:w-px before:bg-neutral-200 dark:before:bg-neutral-800 flex flex-col gap-6"
+          className="relative before:absolute before:inset-y-0 before:left-3 before:w-px before:bg-neutral-200 dark:before:bg-neutral-800 flex flex-col gap-8 sm:gap-6"
         >
           {sortedSignals.map((signal, idx) => (
             <motion.div
@@ -75,10 +75,14 @@ export default function SignalsTimeline({ signals = [] }: SignalsTimelineProps) 
               />
 
               {/* Card */}
-              <div className={cn(
-                "group rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md",
-                signal.confidence === "High" ? "hover:border-neutral-400 dark:hover:border-neutral-600 shadow-sm" : ""
-              )}>
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                className={cn(
+                  "group rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5 sm:p-6 transition-all duration-200 shadow-sm hover:shadow-md",
+                  signal.confidence === "High" ? "hover:border-neutral-400 dark:hover:border-neutral-600" : ""
+                )}
+              >
                 <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-3">
                     <span className={cn("inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium", categoryStyles[signal.category]?.badge || categoryStyles.Other.badge)}>
@@ -99,7 +103,7 @@ export default function SignalsTimeline({ signals = [] }: SignalsTimelineProps) 
                   <span className="absolute -left-1.5 -top-1.5 bg-white dark:bg-neutral-900 px-1 text-[10px] uppercase font-bold text-neutral-400 dark:text-neutral-500">Source Excerpt</span>
                   "{signal.detectedFrom}"
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
