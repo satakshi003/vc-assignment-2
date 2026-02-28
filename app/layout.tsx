@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ToastProvider } from "@/components/ui/ToastProvider";
-import ClientLayout from "@/components/ClientLayout";
 
 export const metadata: Metadata = {
   title: "Ventura - VC Intelligence",
@@ -16,10 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className="font-sans overflow-x-hidden">
+      <body className="font-sans min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ToastProvider>
-            <ClientLayout>{children}</ClientLayout>
+            {children}
           </ToastProvider>
         </ThemeProvider>
       </body>
