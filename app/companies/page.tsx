@@ -69,14 +69,14 @@ function CompaniesContent() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="flex h-full flex-col"
     >
-      <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 px-8 py-6">
+      <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 px-4 sm:px-8 py-4 sm:py-6">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">Companies</h1>
           <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">Discover and enrich startup data.</p>
         </div>
       </div>
 
-      <div className="p-8">
+      <div className="p-4 sm:p-8">
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center justify-between">
           <div className="flex flex-1 flex-col gap-4 sm:flex-row sm:items-center">
             <div className="relative w-full max-w-sm">
@@ -196,7 +196,7 @@ function CompaniesContent() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
-                className="pointer-events-auto rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-6 py-4 shadow-xl flex items-center gap-6"
+                className="pointer-events-auto rounded-xl sm:rounded-full border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 sm:px-6 py-3 sm:py-4 shadow-xl flex flex-col sm:flex-row items-center gap-3 sm:gap-6 w-[calc(100%-2rem)] sm:w-auto"
               >
                 <span className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
                   {selectedIds.length} {selectedIds.length === 1 ? 'company' : 'companies'} selected

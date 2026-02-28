@@ -115,7 +115,7 @@ export default function HomePage() {
     <div className="min-h-full overflow-y-auto bg-neutral-50 dark:bg-neutral-950">
 
       {/* ── HERO ── */}
-      <section className="border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-6 py-24">
+      <section className="border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-4 sm:px-6 py-16 sm:py-24">
         <motion.div
           className="mx-auto max-w-3xl text-center"
           variants={staggerContainer}
@@ -131,7 +131,7 @@ export default function HomePage() {
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="mt-6 text-4xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100 md:text-5xl"
+            className="mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100"
           >
             Structured Intelligence for{" "}
             <span className="text-neutral-500 dark:text-neutral-400">Modern Venture Capital</span>
@@ -140,7 +140,7 @@ export default function HomePage() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="mt-5 text-lg leading-relaxed text-neutral-500 dark:text-neutral-400"
+            className="mt-5 text-base sm:text-lg leading-relaxed text-neutral-500 dark:text-neutral-400"
           >
             Source, analyze, and organize high-signal startup intelligence powered by
             AI enrichment and structured insights.
@@ -149,18 +149,18 @@ export default function HomePage() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.4, delay: 0.15 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-3"
+            className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             <Link
               href="/companies"
-              className="inline-flex items-center gap-2 rounded-lg bg-black dark:bg-white px-5 py-2.5 text-sm font-medium text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-black dark:bg-white px-5 py-2.5 text-sm font-medium text-white dark:text-black hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors shadow-sm"
             >
               Explore Companies
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/lists"
-              className="inline-flex items-center gap-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
             >
               View Watchlists
             </Link>
@@ -169,7 +169,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PRODUCT PREVIEW ── */}
-      <section className="px-6 py-24">
+      <section className="px-4 sm:px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-5xl">
           <motion.div
             className="grid gap-12 lg:grid-cols-2 lg:items-center"
@@ -219,7 +219,7 @@ export default function HomePage() {
       </section>
 
       {/* ── WORKFLOW ── */}
-      <section className="border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-6 py-24">
+      <section className="border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-4 sm:px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-5xl">
           <motion.div
             className="mb-12 text-center"
@@ -237,7 +237,7 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div
-            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
@@ -278,7 +278,7 @@ export default function HomePage() {
       </section>
 
       {/* ── TECH STACK ── */}
-      <section className="px-6 py-16">
+      <section className="px-4 sm:px-6 py-12 sm:py-16">
         <div className="mx-auto max-w-5xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -313,7 +313,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-6 py-24">
+      <section className="border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-4 sm:px-6 py-16 sm:py-24">
         <motion.div
           className="mx-auto max-w-xl text-center"
           initial={{ opacity: 0, y: 15 }}

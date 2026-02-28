@@ -74,7 +74,7 @@ export default function ListsPage() {
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="flex h-full flex-col p-8"
+        className="flex h-full flex-col p-4 sm:p-8"
       >
         <div className="mb-8 flex items-end justify-between border-b border-neutral-200 dark:border-neutral-800 pb-6">
           <div>
@@ -105,7 +105,7 @@ export default function ListsPage() {
             </button>
           </div>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             <AnimatePresence>
               {lists.map((list) => (
                 <motion.div

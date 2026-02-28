@@ -1,12 +1,16 @@
 "use client";
 
-import { Search, Bell, UserCircle } from "lucide-react";
+import { Search, Bell, UserCircle, Menu } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { useToast } from "@/lib/useToast";
 
-export default function Header() {
+interface HeaderProps {
+  onMenuToggle?: () => void;
+}
+
+export default function Header({ onMenuToggle }: HeaderProps) {
   const [search, setSearch] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
@@ -53,8 +57,18 @@ export default function Header() {
   };
 
   return (
-    <header className="flex h-14 items-center justify-between border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-6">
-      <div className="flex flex-1 items-center">
+    <header className="flex h-14 items-center justify-between border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 px-3 sm:px-6 gap-3">
+      {/* Hamburger — only visible on mobile */}
+      <button
+        onClick={onMenuToggle}
+        className="flex-shrink-0 rounded-md p-2 text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors lg:hidden"
+        aria-label="Open navigation"
+      >
+        <Menu className="h-5 w-5" />
+      </button>
+
+      {/* Search */}
+      <div className="flex flex-1 items-center min-w-0">
         <div className="relative w-full max-w-md">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <Search className="h-4 w-4 text-neutral-400" />
@@ -75,9 +89,11 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-4">
+
+      {/* Right actions */}
+      <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
         <ThemeToggle />
-        <button className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 relative">
+        <button className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 relative hidden sm:block">
           <Bell className="h-5 w-5" />
         </button>
         <button className="flex items-center gap-2 rounded-full p-1 text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100">
