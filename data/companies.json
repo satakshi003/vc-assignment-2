@@ -1,0 +1,152 @@
+[
+  {
+    "id": "c_001",
+    "name": "Harmonic",
+    "industry": "Data & Analytics",
+    "location": "San Francisco, CA",
+    "description": "Building the most accurate database of the startup ecosystem. AI-powered sourcing for venture funds.",
+    "website": "https://harmonic.ai",
+    "logo": "https://cdn.brandfetch.io/idfCXATCal/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1746449601083",
+    "overview": "Harmonic is a data platform that provides one of the most complete startup databases used by venture capitalists and corporate teams to source new investment opportunities and insights. It enhances deal sourcing using rich firmographic data and real-time company updates." 
+  },
+  {
+    "id": "c_002",
+    "name": "Vercel",
+    "industry": "Developer Tools",
+    "location": "San Francisco, CA",
+    "description": "The platform for frontend developers, providing the speed and reliability innovators need to create at the moment of inspiration.",
+    "website": "https://vercel.com",
+    "logo": "https://cdn.brandfetch.io/idDpCfN4VD/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1759982772575",
+    "overview": "Vercel is a cloud platform optimized for frontend developers and frameworks like Next.js, enabling automatic deployments, edge scaling, and fast performance for web applications." 
+  },
+  {
+    "id": "c_003",
+    "name": "Supabase",
+    "industry": "Developer Tools",
+    "location": "Singapore",
+    "description": "The open source Firebase alternative. Build in a weekend, scale to millions.",
+    "website": "https://supabase.com",
+    "logo": "https://cdn.brandfetch.io/idsSceG8fK/w/436/h/449/theme/dark/symbol.png?c=1bxid64Mup7aczewSAYMX&t=1668081497517",
+    "overview": "Supabase provides backend services including authentication, database, storage, and real-time APIs, making it an open-source alternative to Firebase that scales from small projects to enterprise use." 
+  },
+  {
+    "id": "c_004",
+    "name": "Linear",
+    "industry": "Productivity",
+    "location": "Remote",
+    "description": "Linear is a better way to build products. Meet the new standard for modern software development.",
+    "website": "https://linear.app",
+    "logo": "https://cdn.brandfetch.io/iduDa181eM/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1723620974313",
+    "overview": "Linear is a modern product and issue-tracking tool designed for velocity — offering fast keyboard workflows, integrations, and real-time collaboration for software teams." 
+  },
+  {
+    "id": "c_005",
+    "name": "Stripe",
+    "industry": "FinTech",
+    "location": "San Francisco, CA",
+    "description": "Financial infrastructure platform for the internet. Millions of companies use Stripe to accept payments.",
+    "website": "https://stripe.com",
+    "logo": "https://cdn.brandfetch.io/idxAg10C0L/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1746435914582",
+    "overview": "Stripe is one of the world’s leading financial infrastructure platforms, powering online payments, billing systems, and financial tools for businesses of all sizes." 
+  },
+  {
+    "id": "c_006",
+    "name": "Anthropic",
+    "industry": "Artificial Intelligence",
+    "location": "San Francisco, CA",
+    "description": "An AI safety and research company that's building reliable, interpretable, and steerable AI systems.",
+    "website": "https://anthropic.com",
+    "logo": "https://cdn.brandfetch.io/idmJWF3N06/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1721803183716",
+    "overview": "Anthropic develops cutting-edge AI models with an emphasis on safety, interpretability, and aligning machine behavior with human intentions." 
+  },
+  {
+    "id": "c_007",
+    "name": "Midjourney",
+    "industry": "Artificial Intelligence",
+    "location": "San Francisco, CA",
+    "description": "An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.",
+    "website": "https://midjourney.com",
+    "logo": "https://cdn.brandfetch.io/id2zQLfAF7/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1764313584264",
+    "overview": "Midjourney is a generative AI research lab best known for its AI-powered image generation platform that allows users to create artwork from text prompts." 
+  },
+  {
+    "id": "c_008",
+    "name": "Rippling",
+    "industry": "HR Tech",
+    "location": "San Francisco, CA",
+    "description": "Magically simplify HR, IT, and Finance. Rippling brings together all of the workforce systems that are normally scattered.",
+    "website": "https://rippling.com",
+    "logo": "https://cdn.brandfetch.io/idyS3r5vpr/idKT79kFIK.svg?c=1bxid64Mup7aczewSAYMX&t=1657263209751",
+    "overview": "Rippling is an all-in-one workforce management platform that consolidates HR, payroll, IT, and finance tools into a single automated system." 
+  },
+  {
+    "id": "c_009",
+    "name": "Notion",
+    "industry": "Productivity",
+    "location": "San Francisco, CA",
+    "description": "The connected workspace where better, faster work happens.",
+    "website": "https://notion.so",
+    "logo": "https://cdn.brandfetch.io/idPYUoikV7/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1721041449201",
+    "overview": "Notion is an all-in-one productivity workspace combining notes, docs, databases, and tasks into a flexible app for teams and individuals." 
+  },
+  {
+    "id": "c_010",
+    "name": "Retool",
+    "industry": "Developer Tools",
+    "location": "San Francisco, CA",
+    "description": "The fast way to build internal tools. Drag-and-drop building blocks to build apps that connect to any database or API.",
+    "website": "https://retool.com",
+    "logo": "https://cdn.brandfetch.io/id3V8wH0I2/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1726553476565",
+    "overview": "Retool is a low-code platform that lets developers build custom internal tools quickly using drag-and-drop components connected to data sources." 
+  },
+  {
+    "id": "c_011",
+    "name": "Perplexity",
+    "industry": "Artificial Intelligence",
+    "location": "San Francisco, CA",
+    "description": "AI-powered search engine that provides direct answers to your questions using up-to-date information.",
+    "website": "https://perplexity.ai",
+    "logo": "https://cdn.brandfetch.io/idNdawywEZ/w/800/h/800/theme/dark/idy0gCuAWE.png?c=1bxid64Mup7aczewSAYMX&t=1754453380972", 
+    "overview": "Perplexity is an AI-powered search engine that blends real-time web results with language models to provide accurate, source-backed answers." 
+  },
+  {
+    "id": "c_012",
+    "name": "Glean",
+    "industry": "Enterprise Software",
+    "location": "Palo Alto, CA",
+    "description": "Workplace search and knowledge management powered by AI. Find what you need across all your company's apps.",
+    "website": "https://glean.com",
+    "logo": "https://cdn.brandfetch.io/idJB_yEUFy/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1691903441599",
+    "overview": "Glean is an AI-powered workplace search platform that indexes tools like Slack, Google Drive, and Jira to help employees find knowledge instantly." 
+  },
+  {
+    "id": "c_013",
+    "name": "Plaid",
+    "industry": "FinTech",
+    "location": "San Francisco, CA",
+    "description": "The data network powering the fintech tools that millions of people rely on to live a healthier financial life.",
+    "website": "https://plaid.com",
+    "logo": "https://cdn.brandfetch.io/idly0-MZ4j/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1761296775183",
+    "overview": "Plaid provides secure APIs that connect consumer bank accounts to financial apps, powering services like budgeting tools and payments." 
+  },
+  {
+    "id": "c_014",
+    "name": "Hugging Face",
+    "industry": "Artificial Intelligence",
+    "location": "New York, NY",
+    "description": "The AI community building the future. Build, train and deploy state of the art models powered by the reference open source in machine learning.",
+    "website": "https://huggingface.co",
+    "logo": "https://huggingface.co/front/assets/huggingface_logo.svg",
+    "overview": "Hugging Face is a leading AI ecosystem providing open-source models, datasets, and tools for developers to train, share, and deploy machine learning models." 
+  },
+  {
+    "id": "c_015",
+    "name": "Scale AI",
+    "industry": "Artificial Intelligence",
+    "location": "San Francisco, CA",
+    "description": "The data platform for AI. Accelerate the development of AI applications with high quality training data.",
+    "website": "https://scale.com",
+    "logo": "https://cdn.brandfetch.io/idLdViRnHy/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1668080408661",
+    "overview": "Scale AI provides high-quality labeled training data and infrastructure for organizations building computer vision, language, and autonomous systems." 
+  }
+]

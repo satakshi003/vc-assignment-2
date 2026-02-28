@@ -1,0 +1,113 @@
+"use client";
+
+import { useEffect, useState, use } from "react";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { ArrowLeft, MapPin, Globe, Building2, BookmarkPlus } from "lucide-react";
+import companiesData from "@/data/companies.json";
+import { Company } from "@/types/company";
+import NotesSection from "@/components/NotesSection";
+import EnrichmentPanel from "@/components/EnrichmentPanel";
+
+export default function CompanyProfilePage({ params }: { params: Promise<{ id: string }> }) {
+  const unwrappedParams = use(params);
+  const [company, setCompany] = useState<Company | null>(null);
+
+  useEffect(() => {
+    // We explicitly cast the local json parse to Company[] to satisfy TS typing
+    const found = (companiesData as Company[]).find((c) => c.id === unwrappedParams.id);
+    if (found) {
+      setCompany(found);
+    }
+  }, [unwrappedParams.id]);
+
+  if (!company) {
+    if (companiesData.some((c) => c.id === unwrappedParams.id)) {
+      return <div>Loading...</div>; // Client side resolving
+    }
+    return notFound();
+  }
+
+  const handleSaveToList = () => {
+    // Basic implementation to push to a default list for now
+    const saved = JSON.parse(localStorage.getItem("saved-companies") || "[]");
+    if (!saved.some((c: Company) => c.id === company.id)) {
+      saved.push(company);
+      localStorage.setItem("saved-companies", JSON.stringify(saved));
+      alert("Saved to your list! (Check My Lists)");
+    } else {
+      alert("Already in your list.");
+    }
+  };
+
+  return (
+    <div className="flex h-full flex-col">
+      {/* Header section */}
+      <div className="border-b border-neutral-200 bg-white px-8 py-6">
+        <Link href="/companies" className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-neutral-500 hover:text-neutral-900">
+          <ArrowLeft className="h-4 w-4" />
+          Back to Companies
+        </Link>
+        <div className="flex items-start justify-between">
+          <div className="flex items-start gap-4">
+            <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm">
+              <img
+                src={company.logo}
+                alt={`${company.name} logo`}
+                className="h-full w-full object-contain p-1.5"
+              />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-neutral-900">{company.name}</h1>
+              <div className="mt-2 flex items-center gap-4 text-sm text-neutral-500">
+                <div className="flex items-center gap-1">
+                  <Building2 className="h-4 w-4" />
+                  {company.industry}
+                </div>
+                <div className="flex items-center gap-1">
+                  <MapPin className="h-4 w-4" />
+                  {company.location}
+                </div>
+                <div className="flex items-center gap-1">
+                  <Globe className="h-4 w-4" />
+                  <a href={company.website} target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 hover:underline">
+                    {company.website.replace(/^https?:\/\/(www\.)?/, '')}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button onClick={handleSaveToList} className="flex items-center gap-2 rounded-md border border-neutral-300 bg-white px-4 py-2 font-medium text-neutral-700 shadow-sm hover:bg-neutral-50">
+            <BookmarkPlus className="h-4 w-4" />
+            Save to List
+          </button>
+        </div>
+      </div>
+
+      {/* Main Content Pane */}
+      <div className="grid flex-1 grid-cols-1 gap-8 overflow-y-auto p-8 lg:grid-cols-3">
+        {/* Left Column: Overview + Notes */}
+        <div className="flex flex-col gap-8 lg:col-span-1">
+          <div className="rounded-xl border border-neutral-200 bg-white p-6">
+            <h3 className="mb-4 font-semibold text-neutral-900">Overview</h3>
+            <p className="text-sm leading-relaxed text-neutral-700">{company.description}</p>
+          </div>
+
+          <div className="rounded-xl border border-neutral-200 bg-white p-6">
+            <NotesSection companyId={company.id} />
+          </div>
+        </div>
+
+        {/* Right Column: AI Enrichment */}
+        <div className="lg:col-span-2">
+          <EnrichmentPanel
+            companyId={company.id}
+            website={company.website}
+            companyName={company.name}
+            overview={company.description}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
